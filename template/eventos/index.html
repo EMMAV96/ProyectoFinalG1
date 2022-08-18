@@ -1,0 +1,23 @@
+{% extends "base.html" %} 
+
+{% block titulo %} Eventos {% endblock %}
+   
+{% block contenido %} 
+
+<div class="button my-3">
+  <button type="button" class="btn btn-success">Crear Nuevo<a href="#"></a></button>
+</div>
+{% for e in eventos %}
+
+  <div class="card text-black">
+    <div class="card-body">
+      <h4 class="card-title">{{e.nombre}}</h4>
+      <p class="card-text">Inscribite a este Curso para desarrollarte a nivel profesional</p>
+      <button type="button" class="btn btn-success">Modificar<a href="#"></a></button>
+      <button type="button" class="btn btn-danger">Eliminar</button>
+    </div>
+  </div>
+
+{% endfor %}
+
+{% endblock  %}
