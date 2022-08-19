@@ -14,11 +14,15 @@
   <body>
   <nav class="navbar navbar-expand navbar-light bg-light">
       <div class="nav navbar-nav">
-          <button type="submit" class="btn btn-outline-primary"><a class="nav-item nav-link" href="{% url 'login' %}">Iniciar sesion</a></button>
-          <a class="nav-item nav-link" href="{% url 'inicio' %}">Inicio</a>
-          <a class="nav-item nav-link" href="#">Sobre Nosotros</a>
-          <a class="nav-item nav-link" href="{% url 'cursos' %}">Eventos</a>
+          <a class="nav-item nav-link" href="#">Inicio</a>
+          <a class="nav-item nav-link" href="#">Calendario</a>
+          <a class="nav-item nav-link" href="{% url 'listaeventos' %}">Eventos</a>
+          <a class="nav-item nav-link" href="#">Perfil</a>
+          <a class="nav-item nav-link" href="#">Contactanos</a>
+          <a class="nav-item nav-link" href="#">Nosotros</a>          
       </div>
+
+      <button type="submit" class="btn btn-success me-3" style="margin:-3px;"><a class="nav-item nav-link" href="{% url 'login' %}">Iniciar sesion</a></button>
   </nav>
 
   <div class="container">

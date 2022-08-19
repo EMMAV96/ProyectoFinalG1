@@ -6,6 +6,8 @@ from django.shortcuts import render, redirect
 from Usuarios.forms import UserRegisterForm
 from django.contrib.auth.forms import UserCreationForm
 from Eventos.models import Evento
+from Eventos.forms import EventoForm
+
 
 
 def inicio(request):
@@ -51,3 +53,14 @@ def index(request):
         'eventos': eventos
     }
     return render (request, template_name, ctx)
+
+def crear(request):
+    template_name = 'eventos/crear.html'
+    formulario = EventoForm(request.POST, request.FILES )
+    if formulario.is_valid():
+        formulario.save()
+        return redirect('listaeventos')
+    ctx = {
+        'formulario': formulario
+    }
+    return render(request, template_name, ctx)
