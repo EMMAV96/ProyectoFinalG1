@@ -1,24 +1,16 @@
 {% extends "base.html" %} 
 
-{% block titulo %} Crear Eventos {% endblock %}
+{% block titulo %} Crear {% endblock %}
    
 {% block contenido %} 
 
-    <div class="card my-5" style="margin: 20px;">
-        <div class="card-header">
-            Crear Nuevo Evento
-        </div>
-        <div class="card-body">
-            <h4 class="card-title">Datos del Evento</h4>
-            {% include 'eventos/form.html' %}
-        </div>
-        <div class="card-footer">
+<h1>Crear Evento</h1>
 
-        </div>
-
-    </div>
+<form action="" method="post">{% csrf_token  %}
+   {{form.as_p}}
 
 
-
-
+    <button type="submit" class="btn btn-success">Crear</button>    
+</form>
+    
 {% endblock  %}

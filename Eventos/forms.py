@@ -5,4 +5,6 @@ class EventoForm(forms.ModelForm):
     class Meta:
         model = Evento
         fields = '__all__'
+
+    
         

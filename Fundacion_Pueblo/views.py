@@ -11,8 +11,8 @@ from Eventos.forms import EventoForm
 
 
 def inicio(request):
-    template_name = 'funciones/inicio.html'
-    eventos = Evento.objects.all()
+    template_name = 'paginas/inicio.html'
+    eventos = Evento.objects.filter()
     ctx = {
         'eventos': eventos
     }
@@ -53,7 +53,7 @@ def index(request):
         'eventos': eventos
     }
     return render (request, template_name, ctx)
-
+""""
 def crear(request):
     template_name = 'eventos/crear.html'
     formulario = EventoForm(request.POST, request.FILES )
@@ -64,3 +64,9 @@ def crear(request):
         'formulario': formulario
     }
     return render(request, template_name, ctx)
+
+
+def eliminar(request, id):
+    evento = Evento.objects.get(id=id)
+    evento.delete()
+    return redirect('listaeventos')"""

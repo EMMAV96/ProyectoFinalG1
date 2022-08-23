@@ -1,16 +1,16 @@
 
 
-<form enctype="multipart/form-data" method="post">
-    
-    {% csrf_token  %}
-    {% for campo in formulario  %}
+<form enctype="multipart/form-data" method="post">{% csrf_token  %}
         <div class="mb-3">
            <label for="" class="form-label">{{ campo.label }}:</label>
            <input type={{campo.field.widget.input_type}} name={{campo.name}}  id="" class="form-control" placeholder={{campo.label}}>
         </div>
-        <!---
-        <div class="col-12 help-text">{{ campo.errors }}</div>
-    {% endfor  %}   --> 
+
+       <!--<div class="col-12 help-text">{{ campo.errors }}</div>--> 
+
+
+
+    {% endfor  %}
 
 <input name="" id="" class="btn btn-success" type="submit" value="Crear" href="{% url 'listaeventos' %}">
 

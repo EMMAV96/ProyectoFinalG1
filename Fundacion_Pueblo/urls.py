@@ -1,7 +1,7 @@
 
 from django import views
 from django.contrib import admin
-from django.urls import path
+from django.urls import include, path 
 from django.contrib.auth.views import LoginView, LogoutView
 
 from . import views
@@ -13,5 +13,6 @@ urlpatterns = [
     path('iniciosesion/', views.login, name='login'),
     path('registro/', views.registro, name='registro'),
     path('listaeventos/', views.index, name='listaeventos'),
-    path('creareventos/', views.crear, name='creareventos'),
+
+    path('eventos/', include('Eventos.urls'), name='creareventos'),
 ]

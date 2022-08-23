@@ -5,7 +5,7 @@
 {% block contenido %} 
 
 <div class="button mb-3">
-  <button class="btn btn-success w-10 my-1"><a href="{% url 'creareventos' %}" style="text-decoration:none; color:white ;" >Crear Nuevo</a></button>
+  <button class="btn btn-primary my-1"><a href="{% url 'creareventos' %}" style="text-decoration:none; color:white ;" >Crear Nuevo</a></button>
 </div>
 {% for e in eventos %}
 
@@ -14,8 +14,8 @@
       <h4 class="card-title">{{e.nombre}}</h4>
       <p>Fecha de Inicio:{{e.fecha}}</p>
       <p class="card-text">{{e.descripcion}}</p>
-      <button type="button" class="btn btn-success">Modificar<a href="#"></a></button>
-      <button type="button" class="btn btn-danger">Eliminar</button>
+      <button type="button" class="btn btn-warning">Modificar<a href="#"></a></button>
+      <button type="button" class="btn btn-danger">Eliminar<a href=""></a></button>
     </div>
   </div>
 
