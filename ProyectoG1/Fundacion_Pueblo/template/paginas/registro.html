@@ -1,0 +1,18 @@
+
+ {% extends "base.html" %} 
+
+ {% block titulo %} Registro {% endblock %}
+    
+ {% block contenido %} 
+     
+  <div class="container" style="background:#8B9289; width: 100%; height: 100%;">
+    <form class="form" method="post" style="border:solid; margin-right: 50px; margin-left: 25px; padding: 15px; background-color:#C1C8BF;
+    ">
+        {% csrf_token %}
+        {{ form.as_p }}
+               
+        <button type="submit" class="btn btn-dark" id="submit" style="display: block;" >Registrarse</button>
+    </form> 
+    
+ </div>
+{% endblock %}

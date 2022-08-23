@@ -1,0 +1,49 @@
+
+ {% extends "base.html" %} 
+
+ {% block titulo %} Inicio {% endblock %}
+    
+ {% block contenido %} 
+    
+<div class="container mt-3" style="background-color:#CEFCFA;">
+    <h2>Buscar Eventos</h2>
+    <p>Solicita informacion y encontra los eventos disponibles en la lista:</p>  
+    <input class="form-control" id="myInput" type="text" placeholder="Buscar..">
+    <br>
+
+    <div class="container" style="background-color:white ;">
+        <table class="table table-hover">
+              <thead>
+                <tr>
+                  <th scope="col">Nombre</th>
+                  <th scope="col">Fecha de Inicio</th>
+                  <th scope="col">Descripcion</th>
+                </tr>
+              </thead>
+              <tbody id="myTable">
+                {% for campo in eventos %}      
+                  <tr>
+                    <td>{{ campo.nombre }}</td>
+                    <td>{{ campo.fecha}}</td>
+                    <td>{{ campo.descripcion }}<button type="button" class="btn btn-outline-primary"><a href="{% url 'login' %}">Inscribirse</a></button></td>                    
+                  </tr>
+                {% endfor %}
+              </tbody>
+          </table>
+    </div>
+
+    <p>Registrate  y disfruta de los cursos y eventos disponibles en Fundacion Pueblo</p>
+  </div>
+  
+  <script>
+  $(document).ready(function(){
+    $("#myInput").on("keyup", function() {
+      var value = $(this).val().toLowerCase();
+      $("#myTable tr").filter(function() {
+        $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
+      });
+    });
+  });
+  </script>
+
+ {% endblock %}
