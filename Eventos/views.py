@@ -12,5 +12,5 @@ class Crear(CreateView):
     form_class = EventoForm
     template_name = 'eventos/crear.html'
 
-    def get_success_url(self, **kwargs):
-        return reverse('inicio', None)
+    def get_success_url(self):
+        return reverse('inicio')

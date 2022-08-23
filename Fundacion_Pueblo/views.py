@@ -18,10 +18,6 @@ def inicio(request):
     }
     return render(request, template_name,ctx)
 
-def cursos(request):
-    template_name= 'funciones/cursos.html'
-    return render(request, template_name,{})
-
 def login(request):
     template_name= 'paginas/iniciosesion.html'
     return render(request, template_name,{})
@@ -45,28 +41,3 @@ def registro(request):
     template_name= 'paginas/registro.html'
     return render(request, template_name,ctx)
 
-
-def index(request):
-    template_name = 'eventos/index.html'
-    eventos = Evento.objects.all()
-    ctx = {
-        'eventos': eventos
-    }
-    return render (request, template_name, ctx)
-""""
-def crear(request):
-    template_name = 'eventos/crear.html'
-    formulario = EventoForm(request.POST, request.FILES )
-    if formulario.is_valid():
-        formulario.save()
-        return redirect('listaeventos')
-    ctx = {
-        'formulario': formulario
-    }
-    return render(request, template_name, ctx)
-
-
-def eliminar(request, id):
-    evento = Evento.objects.get(id=id)
-    evento.delete()
-    return redirect('listaeventos')"""

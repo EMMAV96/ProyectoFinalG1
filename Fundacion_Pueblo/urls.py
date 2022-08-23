@@ -9,10 +9,9 @@ from . import views
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('inicio/', views.inicio, name='inicio'),
-    path('cursos/', views.cursos, name='cursos'),
     path('iniciosesion/', views.login, name='login'),
     path('registro/', views.registro, name='registro'),
-    path('listaeventos/', views.index, name='listaeventos'),
-
+   
+    #Aplicacion Eventos
     path('eventos/', include('Eventos.urls'), name='creareventos'),
 ]
