@@ -1,0 +1,46 @@
+
+ {% extends "base.html" %} 
+
+ {% block titulo %} Lista de Eventos {% endblock %}
+    
+ {% block contenido %} 
+ <br><br>  <br>
+ 
+  <div class="container">
+    <button type="button" class="btn btn-success">
+      <a href="{% url 'eventos:crear' %}" style="text-decoration: none; color:white">Crear Nuevo</a>
+    </button>
+  
+  
+  
+      <div class="container" style="margin: 5px;">
+          <h1>Lista de Eventos</h1>
+          <table class="table table-striped">
+              <thead>
+                  <tr>
+                    <th scope="col">Id</th>
+                    <th scope="col">Nombre del Evento</th>
+                    <th scope="col">Inicio</th>
+                    <th scope="col">Detalles</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  {% for evento in eventos %}
+                      <tr>
+                          <th scope="row">{{evento.id}}</th>
+                          <th scope="row">{{evento.nombre}}</th>
+                          <th scope="row">{{evento.fecha}}</th>
+                          <th scope="row">{{evento.descripcion}} 
+                          <td><button class="btn btn-primary"><a href="{% url 'eventos:modificar' evento.id %}" style="text-decoration: none; color:white">Modificar</a></button></td>
+                          <td><button class="btn btn-danger" ><a href="{% url 'eventos:eliminar' evento.id %}" style="text-decoration: none; color:white">Eliminar</a></button></td>
+                          </th>
+                      </tr>
+                  {% endfor %}
+                </tbody>
+          </table>
+      </div>
+
+
+  </div>
+
+ {% endblock %} 

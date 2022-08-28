@@ -13,32 +13,44 @@
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
     <!-- Bootstrap CSS v5.2.0-beta1 -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css"  integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
-
-  </head>
-  <body style="background: #8DE2EC;">
-  <nav class="navbar navbar-expand navbar-light bg-light">
-      <div class="nav navbar-nav">
-          <a class="nav-item nav-link" href="{% url 'inicio' %}">Inicio</a>
-          <a class="nav-item nav-link" href="#">Calendario</a>
-          <a class="nav-item nav-link" href="#">Eventos</a>
-          <a class="nav-item nav-link" href="#">Perfil</a>
-          <a class="nav-item nav-link" href="#">Contactanos</a>
-          <a class="nav-item nav-link" href="#">Nosotros</a>          
-      </div>
-
-      <button type="submit" class="btn btn-primary me-3" style="margin:-3px;"><a class="nav-item nav-link" href="{% url 'login' %}">Iniciar sesion</a></button>
-  </nav>
-
-  <div class="container">
-    <div class="row">
-        <div class="col-12">
-            {% block contenido %} {% endblock %}
+<body style="background: #DCF0EF;">
+      <nav class="navbar navbar-primary bg fixed-top"  style="background:#0536A8;">
+        <div class="container-fluid">
+          <a class="navbar-brand" style="color:white;" href="#">Bienvenido a Fundacion Pueblo</a>
+          <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasDarkNavbar" aria-controls="offcanvasDarkNavbar">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="offcanvas offcanvas-end text-bg" style="background:#0536A8;" tabindex="-1" id="offcanvasDarkNavbar" aria-labelledby="offcanvasDarkNavbarLabel">
+            <div class="offcanvas-header">
+            {% if user.is_authenticated %}
+              <button type="button" class="btn btn-primary"><a href="{% url 'usuarios:logout' %}" style="color:white; text-decoration: none;">Cerrar</a></button>
+            {% else %}  
+              <button type="button" class="btn btn-primary"><a href="{% url 'usuarios:login' %}" style="color:white; text-decoration: none;">Iniciar Sesion</a></button>
+            {% endif %}  
+            </div>
+            <div class="offcanvas-body">
+              <ul class="navbar-nav justify-content-end flex-grow-1 pe-3">
+                <li class="nav-item">
+                  <a class="nav-link active" aria-current="page" href="{% url 'inicio' %}" style="color:white;">Inicio</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-item nav-link" style="color:white;" href="{% url 'eventos:lista' %}">Eventos</a>
+                  <a class="nav-item nav-link"  style="color:white;" href="#">Perfil</a>
+                  <a class="nav-item nav-link"  style="color:white;" href="#">Contactanos</a>
+                  <a class="nav-item nav-link"  style="color:white;" href="#">Nosotros</a> 
+                </li>
+              </ul>
+            </div>
+          </div>
         </div>
+      </nav>
+              {% block contenido %} {% endblock %}
+          </div>
+      </div>
     </div>
-  </div>
-    <!-- Bootstrap JavaScript Libraries -->
-    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.5/dist/umd/popper.min.js" integrity="sha384-Xe+8cL9oJa6tN/veChSP7q+mnSPaj5Bcu9mPX5F5xIGE0DVittaqT5lorf0EI7Vk" crossorigin="anonymous"></script>
+      <!-- Bootstrap JavaScript Libraries -->
+      <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.5/dist/umd/popper.min.js" integrity="sha384-Xe+8cL9oJa6tN/veChSP7q+mnSPaj5Bcu9mPX5F5xIGE0DVittaqT5lorf0EI7Vk" crossorigin="anonymous"></script>
 
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.min.js" integrity="sha384-kjU+l4N0Yf4ZOJErLsIcvOU2qSb74wXpOhqTvwVx3OElZRweTnQ6d31fXEoRD1Jy" crossorigin="anonymous"></script>
-  </body>
+      <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.min.js" integrity="sha384-kjU+l4N0Yf4ZOJErLsIcvOU2qSb74wXpOhqTvwVx3OElZRweTnQ6d31fXEoRD1Jy" crossorigin="anonymous"></script>
+</body>
 </html>

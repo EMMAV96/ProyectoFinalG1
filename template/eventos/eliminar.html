@@ -1,0 +1,18 @@
+{% extends "base.html" %} 
+
+{% block titulo %} Eliminar Evento {% endblock %}
+   
+{% block contenido %} 
+<br><br><br>
+    <div class="container">
+
+        <form action="" method="post">{% csrf_token  %}
+            <p><strong>¿Desea Eliminar el evento {{ object }}?</strong></p>
+            <button type="submit" class="btn btn-danger">Confirmar</button>
+        </form>
+        
+
+    </div>
+
+{% endblock %} 
+

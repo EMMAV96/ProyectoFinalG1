@@ -17,27 +17,4 @@ def inicio(request):
         'eventos': eventos
     }
     return render(request, template_name,ctx)
-
-def login(request):
-    template_name= 'paginas/iniciosesion.html'
-    return render(request, template_name,{})
-
-def registro(request):
-    if request.method == 'POST':
-        form = UserRegisterForm(request.POST)
-        if form.is_valid():
-            form.save()
-            """"
-            username = form.cleaned_data['username']
-            messages.success(request, f'Usuario {username} creado',extra_tags="", fail_silently=False)
-            """
-            return redirect('login')
-    else:
-        form= UserRegisterForm()
     
-    ctx =  {
-        'form' : form
-    }
-    template_name= 'paginas/registro.html'
-    return render(request, template_name,ctx)
-

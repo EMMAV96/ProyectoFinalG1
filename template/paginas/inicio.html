@@ -4,8 +4,11 @@
  {% block titulo %} Inicio {% endblock %}
     
  {% block contenido %} 
-    
-<div class="container mt-3" style="background-color:#CEFCFA;">
+<br><br><br>
+
+<h1>Bienvenido {{user}}!</h1>
+
+<div class="container mb-3" style="background-color:#8DD4E0;">
     <h2>Buscar Eventos</h2>
     <p>Solicita informacion y encontra los eventos disponibles en la lista:</p>  
     <input class="form-control" id="myInput" type="text" placeholder="Buscar..">
@@ -25,7 +28,7 @@
                   <tr>
                     <td>{{ campo.nombre }}</td>
                     <td>{{ campo.fecha}}</td>
-                    <td>{{ campo.descripcion }}<button type="button" class="btn btn-outline-primary"><a href="{% url 'login' %}">Inscribirse</a></button></td>                    
+                    <td>{{ campo.descripcion }}<button type="button" class="btn btn-outline-primary"><a href="#" style="text-decoration: none;">Inscribirse</a></button></td>                    
                   </tr>
                 {% endfor %}
               </tbody>
