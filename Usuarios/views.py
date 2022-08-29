@@ -6,12 +6,15 @@ from Usuarios.forms import UserRegisterForm
 from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth.views import LoginView, LogoutView
 from Eventos.models import Evento
+from django.contrib.auth.mixins import LoginRequiredMixin
 from Eventos.forms import EventoForm
 
 
-class Login(LoginView):
+class Login(LoginView, LoginRequiredMixin):
     template_name= 'paginas/iniciosesion.html'
 
+def logout(request):
+    return redirect('user:login')
 
 def registro(request):
     if request.method == 'POST':
@@ -21,7 +24,7 @@ def registro(request):
             username = form.cleaned_data['username']
             messages.success(request, f'Usuario {username} creado')
         
-            return redirect('usuarios:login')
+            return redirect('user:login')
     else:
         form= UserRegisterForm()
     

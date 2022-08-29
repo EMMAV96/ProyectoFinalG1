@@ -1,0 +1,17 @@
+{% extends "base.html" %} 
+
+{% block titulo %} Inscribirse {% endblock %}
+   
+{% block contenido %} 
+<br><br><br>
+    <div class="container">
+
+        <form action="" method="post">{% csrf_token  %}
+            <p><strong>¿Desea Inscribirse al siguiente evento {{ object }}?</strong></p>
+            <button type="submit" class="btn btn-danger">Confirmar</button>
+        </form>
+        
+
+    </div>
+
+{% endblock %} 

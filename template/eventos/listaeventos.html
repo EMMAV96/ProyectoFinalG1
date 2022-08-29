@@ -8,7 +8,7 @@
  
   <div class="container">
     <button type="button" class="btn btn-success">
-      <a href="{% url 'eventos:crear' %}" style="text-decoration: none; color:white">Crear Nuevo</a>
+      <a href="{% url 'cursos:crear' %}" style="text-decoration: none; color:white">Crear Nuevo</a>
     </button>
   
   
@@ -31,8 +31,8 @@
                           <th scope="row">{{evento.nombre}}</th>
                           <th scope="row">{{evento.fecha}}</th>
                           <th scope="row">{{evento.descripcion}} 
-                          <td><button class="btn btn-primary"><a href="{% url 'eventos:modificar' evento.id %}" style="text-decoration: none; color:white">Modificar</a></button></td>
-                          <td><button class="btn btn-danger" ><a href="{% url 'eventos:eliminar' evento.id %}" style="text-decoration: none; color:white">Eliminar</a></button></td>
+                          <td><button class="btn btn-primary"><a href="{% url 'cursos:modificar' evento.id %}" style="text-decoration: none; color:white">Modificar</a></button></td>
+                          <td><button class="btn btn-danger" ><a href="{% url 'cursos:eliminar' evento.id %}" style="text-decoration: none; color:white">Eliminar</a></button></td>
                           </th>
                       </tr>
                   {% endfor %}

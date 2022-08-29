@@ -23,9 +23,9 @@
           <div class="offcanvas offcanvas-end text-bg" style="background:#0536A8;" tabindex="-1" id="offcanvasDarkNavbar" aria-labelledby="offcanvasDarkNavbarLabel">
             <div class="offcanvas-header">
             {% if user.is_authenticated %}
-              <button type="button" class="btn btn-primary"><a href="{% url 'usuarios:logout' %}" style="color:white; text-decoration: none;">Cerrar</a></button>
+              <button type="button" class="btn btn-primary"><a href="{% url 'user:logout' %}" style="color:white; text-decoration: none;">Cerrar</a></button>
             {% else %}  
-              <button type="button" class="btn btn-primary"><a href="{% url 'usuarios:login' %}" style="color:white; text-decoration: none;">Iniciar Sesion</a></button>
+              <button type="button" class="btn btn-primary"><a href="{% url 'user:login' %}" style="color:hsl(0, 0%, 100%); text-decoration: none;">Iniciar Sesion</a></button>
             {% endif %}  
             </div>
             <div class="offcanvas-body">
@@ -34,10 +34,14 @@
                   <a class="nav-link active" aria-current="page" href="{% url 'inicio' %}" style="color:white;">Inicio</a>
                 </li>
                 <li class="nav-item">
-                  <a class="nav-item nav-link" style="color:white;" href="{% url 'eventos:lista' %}">Eventos</a>
-                  <a class="nav-item nav-link"  style="color:white;" href="#">Perfil</a>
-                  <a class="nav-item nav-link"  style="color:white;" href="#">Contactanos</a>
-                  <a class="nav-item nav-link"  style="color:white;" href="#">Nosotros</a> 
+                  {% if user.is_staff %}
+                      <a class="nav-item nav-link" style="color:white;" href="{% url 'cursos:lista' %}">Eventos</a> 
+                  {% else %}  
+                      <a class="nav-item nav-link"  style="color:white;" href="#">Perfil</a>
+                      <a class="nav-item nav-link"  style="color:white;" href="#">Contactanos</a>
+                      <a class="nav-item nav-link"  style="color:white;" href="#">Nosotros</a> 
+                  {% endif %}
+                  
                 </li>
               </ul>
             </div>

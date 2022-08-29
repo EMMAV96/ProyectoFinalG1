@@ -19,5 +19,7 @@ urlpatterns = [
     path('eventos/', include('Eventos.urls')),
     path('eventos/', include('Eventos.urls')),
     path('eventos/', include('Eventos.urls')),
-
+    
+    #Aplicacion Participantes
+    path('participantes/', include('Participantes.urls')),
 ]

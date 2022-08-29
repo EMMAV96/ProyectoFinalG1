@@ -14,7 +14,7 @@ class Crear(CreateView):
     template_name = 'eventos/crear.html'
 
     def get_success_url(self, **kwargs):
-        return reverse('eventos:lista', args=[])
+        return reverse('cursos:lista', args=[])
 
 class Lista(ListView):
     template_name='eventos/listaeventos.html'
@@ -28,12 +28,12 @@ class Modificar(UpdateView):
     context_content_name = 'eventos'
 
     def get_success_url(self, **kwargs):
-        return reverse('eventos:lista')
+        return reverse('cursos:lista')
 
 class Eliminar(DeleteView):
     template_name='eventos/eliminar.html'
     model=Evento
 
     def get_success_url(self, **kwargs):
-        return reverse('eventos:lista', args=[])
+        return reverse('cursos:lista', args=[])
     
